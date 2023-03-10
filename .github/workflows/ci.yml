@@ -42,6 +42,7 @@ jobs:
           export CGO_ENABLED=0
           export LD_FLAGS="-w -s -X github.com/Mrs4s/go-cqhttp/internal/base.Version=${COMMIT_ID::7}"
           go get -u github.com/Mrs4s/MiraiGo@9760f01
+          go mod tidy
           go build -o "output/$BINARY_NAME" -trimpath -ldflags "$LD_FLAGS" .
       - name: Upload artifact
         uses: actions/upload-artifact@v3
